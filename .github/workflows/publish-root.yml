@@ -32,13 +32,13 @@ jobs:
           echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> ~/.npmrc
 
       - name: Install and build package
-        working-directory: packages/bca-authkit
+        working-directory: bca-authkit
         run: |
           npm install --legacy-peer-deps --no-audit --no-fund
           npm run build
 
       - name: Publish package to GitHub Packages
-        working-directory: packages/bca-authkit
+        working-directory: bca-authkit
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
