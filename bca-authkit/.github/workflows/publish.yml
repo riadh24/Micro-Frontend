@@ -55,7 +55,7 @@ jobs:
         with:
           node-version: '20'
           registry-url: 'https://npm.pkg.github.com'
-          scope: '@riadhazzabi'
+          scope: '@riadh24'
           cache: 'npm'
           
       - name: Install dependencies
@@ -66,7 +66,7 @@ jobs:
         
       - name: Configure npm for GitHub Packages
         run: |
-          echo "@riadhazzabi:registry=https://npm.pkg.github.com" >> ~/.npmrc
+          echo "@riadh24:registry=https://npm.pkg.github.com" >> ~/.npmrc
           echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> ~/.npmrc
           
       - name: Publish to GitHub Packages

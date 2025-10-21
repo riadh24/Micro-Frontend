@@ -113,7 +113,6 @@ export class AuthAPI {
         redirectUri,
         responseType: AuthSession.ResponseType.Code,
         extraParams: {},
-        additionalParameters: {},
       });
 
       // Open OAuth flow
@@ -177,7 +176,6 @@ export class AuthAPI {
         redirectUri,
         responseType: AuthSession.ResponseType.Code,
         extraParams: {},
-        additionalParameters: {},
       });
 
       // Open OAuth flow

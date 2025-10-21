@@ -1,0 +1,45 @@
+name: Publish package (repo-root)
+
+on:
+  push:
+    tags:
+      - 'v*'
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@riadh24'
+
+      - name: Configure npm for GitHub Packages
+        run: |
+          echo "@riadh24:registry=https://npm.pkg.github.com" >> ~/.npmrc
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> ~/.npmrc
+
+      - name: Install and build package
+        working-directory: packages/bca-authkit
+        run: |
+          npm ci
+          npm run build
+
+      - name: Publish package to GitHub Packages
+        working-directory: packages/bca-authkit
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          npm publish --registry=https://npm.pkg.github.com

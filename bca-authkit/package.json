@@ -1,6 +1,6 @@
 {
   "name": "@riadh24/bca-authkit",
-  "version": "1.0.2",
+  "version": "1.0.1",
   "description": "Complete authentication kit for React Native Expo applications with email/password, biometric, and OAuth authentication components",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

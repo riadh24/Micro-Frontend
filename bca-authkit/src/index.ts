@@ -19,7 +19,7 @@ import { EmailPasswordLogin } from './components/EmailPasswordLogin';
 import { BiometricLogin } from './components/BiometricLogin';
 import { GoogleLogin, MicrosoftLogin, OAuthLogin } from './components/OAuthLogin';
 
-export default {
+const _default: any = {
   // Context
   AuthProvider,
   useAuth,
@@ -36,3 +36,5 @@ export default {
   MicrosoftLogin,
   OAuthLogin,
 };
+
+export default _default;
