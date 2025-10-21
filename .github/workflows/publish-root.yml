@@ -34,7 +34,7 @@ jobs:
       - name: Install and build package
         working-directory: packages/bca-authkit
         run: |
-          npm ci
+          npm install --legacy-peer-deps --no-audit --no-fund
           npm run build
 
       - name: Publish package to GitHub Packages
